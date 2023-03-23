@@ -23,7 +23,7 @@ your todos."
         new.title = line
         new.complete = False
         new.save()
-        print(new.id)
+        print("## List updated!")
 
     def do_all(self, line):
         """
