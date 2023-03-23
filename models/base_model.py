@@ -25,12 +25,9 @@ class BaseModel:
                                      self.__dict__)
 
     def to_dict(self):
-        """Returns a dictionary representation of the class
-        instance using the format below:
-        {<cls>.<id>:{<cls>, <dict>}"""
+        """Returns a dictionary representation of the 
+        class instance"""
         obj = {}
         obj.update(self.__dict__)
         obj.update({'__class__':self.__class__.__name__})
-        key = self.__class__.__name__ + '.' + self.id
-        return {key: obj}
-
+        return obj
