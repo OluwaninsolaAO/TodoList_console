@@ -16,6 +16,9 @@ class BaseModel:
             self.created_at = datetime.utcnow()
             self.updated_at = self.created_at
         else:
+            at_list = ['created_at', 'updated_at']
+            for at in at_list:
+                kwargs[at] = datetime.fromisoformat(kwargs[at])
             del kwargs['__class__']
             self.__dict__.update(kwargs)
 
@@ -29,5 +32,8 @@ class BaseModel:
         class instance"""
         obj = {}
         obj.update(self.__dict__)
-        obj.update({'__class__':self.__class__.__name__})
+        obj.update({'__class__' : self.__class__.__name__})
+        at_list = ['created_at', 'updated_at']
+        for at in at_list:
+            obj[at] = obj[at].isoformat()
         return obj
