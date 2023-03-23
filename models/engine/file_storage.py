@@ -46,9 +46,12 @@ class FileStorage:
 
         class_dict = {'Todo': Todo, 'BaseModel': BaseModel}
 
-        with open(FileStorage.__file_path, 'r') as file:
-            loads = json.loads(file.read())
-            objs = {}
-            for key, value in loads.items():
-                objs.update({key: class_dict[value['__class__']](**value)})
-            FileStorage.__objects = objs
+        try:
+            with open(FileStorage.__file_path, 'r') as file:
+                loads = json.loads(file.read())
+                objs = {}
+                for key, value in loads.items():
+                    objs.update({key: class_dict[value['__class__']](**value)})
+                FileStorage.__objects = objs
+        except FileNotFoundError:
+            pass
