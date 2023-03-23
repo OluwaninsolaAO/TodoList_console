@@ -44,6 +44,23 @@ your todos."
                     todo.complete = True
             storage.save()
 
+    def do_delete(self, line):
+        """
+        Delete todo from list.
+        """
+        if line == "":
+            print('** Please add a todo object add **')
+        else:
+            line = line.split(' ')
+            delete_list = []
+            for key, todo in storage.all().items():
+                todo_id = todo.id.split('-')
+                if todo_id[1] in line:
+                    delete_list.append(todo)
+            for todo in delete_list:
+                storage.delete(todo)
+            storage.save()
+
     def do_quit(self, line):
         """Quit the console"""
         return True
