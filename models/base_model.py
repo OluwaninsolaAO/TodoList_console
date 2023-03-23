@@ -2,6 +2,7 @@
 """models/base_model.py"""
 from uuid import uuid4
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -22,6 +23,9 @@ class BaseModel:
             del kwargs['__class__']
             self.__dict__.update(kwargs)
 
+        storage.add(self)
+        storage.save()
+
     def __str__(self):
         """string representation"""
         return "[{}] <{}> {}".format(self.__class__.__name__, self.id,
@@ -37,3 +41,12 @@ class BaseModel:
         for at in at_list:
             obj[at] = obj[at].isoformat()
         return obj
+
+    def save(self):
+        """Save all changes to storage"""
+        storage.save()
+
+    def delete(self):
+        """Deletes instance from storage"""
+        storage.delete(self)
+        storage.save()
