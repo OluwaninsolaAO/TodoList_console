@@ -3,11 +3,11 @@ This is a simple console-based Todo List application built using Python. The pur
 
 ### Features
 The following features will be added to the application:
-- Add tasks: Users can add tasks to their to-do list by entering a task description.
-- *View tasks:* Users can view their entire to-do list or a specific task.
-- *Edit tasks:* Users can edit the description of an existing task.
-- *Delete tasks:* Users can delete a task from their to-do list.
-- *Save tasks:* Users can save their to-do list to a file, and load it again when they launch the application.
+- _Add tasks_: Users can add tasks to their to-do list by entering a task description.
+- _View tasks_: Users can view their entire to-do list or a specific task.
+- _Edit tasks_: Users can edit the description of an existing task.
+- _Delete tasks_: Users can delete a task from their to-do list.
+- _Save tasks_: Users can save their to-do list to a file, and load it again when they launch the application.
 
 ### Usage
 To use the application, simply run the Python script in your console. You will be presented with a menu of options to choose from, including adding a task, viewing your to-do list, editing a task, deleting a task, and saving your to-do list.
