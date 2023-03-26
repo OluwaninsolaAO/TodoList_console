@@ -10,11 +10,23 @@ from models.todo import Todo
 class TodoList(cmd.Cmd):
     """This represents the console for our todolist app"""
     prompt = 'TodoList >> '
-    intro = "Welcome to TodoList (the console):\nThis piece\
-of programme helps you keep a list and tracks of\
-your todos."
+    intro = "Welcome to TodoList (the console):\n"
 
     def do_add(self, line):
+        """
+        Add a new todo
+        Usage: add <Todo Title>
+        """
+        TodoList.add(line)
+
+    def do_create(self, line):
+        """
+        Create a new todo
+        Usage: create <Todo Title>
+        """
+        TodoList.add(line)
+
+    def add(line):
         """
         Add a new todo
         Usage: add <Todo Title>
@@ -34,6 +46,14 @@ your todos."
 
     def do_mark(self, line):
         """Mark a given todo as done"""
+        TodoList.mark(line)
+    
+    def do_done(self, line):
+        """Mark a given todo as done"""
+        TodoList.mark(line)
+
+    def mark(line):
+        """Mark a given todo as done"""
         if line == "":
             print('** Please add a todo object add **')
         else:
@@ -48,8 +68,20 @@ your todos."
         """
         Delete todo from list.
         """
+        TodoList.delete(line)
+
+    def do_destroy(self, line):
+        """
+        Destroy todo from list.
+        """
+        TodoList.delete(line)
+
+    def delete(line):
+        """
+        Delete todo from list.
+        """
         if line == "":
-            print('** Please add a todo object add **')
+            print('** Please specify a todo id **')
         else:
             line = line.split(' ')
             delete_list = []
