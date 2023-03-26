@@ -71,6 +71,7 @@ class TodoList(cmd.Cmd):
                 if todo_id[1] in line:
                     todo.complete = True
             storage.save()
+            print('### [{}] marked as complete!'.format('] ['.join(line)))
 
     def do_delete(self, line):
         """
