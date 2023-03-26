@@ -33,6 +33,7 @@ TodoList >> all
 [ ]  Fix broken log     [36ac]  [15:34 26/03/2023]
 
 TodoList >> mark 9f34
+### [9f34] marked as complete!
 
 TodoList >> all
 [+]  Join a bookclub    [9f34]  [15:34 26/03/2023]
